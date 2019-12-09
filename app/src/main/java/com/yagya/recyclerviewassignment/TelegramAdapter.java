@@ -1,6 +1,7 @@
 package com.yagya.recyclerviewassignment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,32 +14,48 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class TelegramAdapter extends RecyclerView.Adapter<TelegramAdapter.TelegramViewHolder>{
+public class TelegramAdapter extends RecyclerView.Adapter<TelegramAdapter.TelegramViewHolder> {
     Context mContext;
-    List<Telegram>telegramList;
+    List<Telegram> telegramList;
 
     // Constructor , to recieve data from the activity
 
-    public TelegramAdapter(Context mContext, List<Telegram> telegramList){
+    public TelegramAdapter(Context mContext, List<Telegram> telegramList) {
         this.mContext = mContext;
         this.telegramList = telegramList;
     }
+
     @NonNull
     @Override
     public TelegramViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.layout_telegram,parent,false);
+                .inflate(R.layout.layout_telegram, parent, false);
         return new TelegramViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TelegramViewHolder holder, int position) {
-        Telegram telegram = telegramList.get(position);
-        holder.imageView.setImageResource(telegram.getImageId());
-        holder.tvName.setText(telegram.getName());
-        holder.tvMessage.setText(telegram.getMessage());
-        holder.tvTime.setText(telegram.getTime());
+    public void onBindViewHolder(@NonNull TelegramViewHolder telegramViewHolder, int i) {
+        final Telegram telegram = telegramList.get(i);
+        telegramViewHolder.imageView.setImageResource(telegram.getImageId());
+        telegramViewHolder.tvName.setText(telegram.getName());
+        telegramViewHolder.tvMessage.setText(telegram.getMessage());
+        telegramViewHolder.tvTime.setText(telegram.getTime());
 
+        //Adding click listener in an imageview
+
+        telegramViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, DetailsActivity.class);
+                intent.putExtra("image", telegram.getImageId());
+                intent.putExtra("name", telegram.getName());
+                intent.putExtra("message", telegram.getMessage());
+                intent.putExtra("time", telegram.getTime());
+
+                mContext.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -46,7 +63,7 @@ public class TelegramAdapter extends RecyclerView.Adapter<TelegramAdapter.Telegr
         return telegramList.size();
     }
 
-    public class TelegramViewHolder extends RecyclerView.ViewHolder{
+    public class TelegramViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imageView;
         TextView tvName, tvMessage, tvTime;
 

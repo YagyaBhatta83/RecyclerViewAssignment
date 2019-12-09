@@ -3,20 +3,20 @@ package com.yagya.recyclerviewassignment;
 public class Telegram {
     private String name;
     private String message;
-    private  int time;
+    private  String time;
     private int imageId;
 
     //Constructor
 
-    public Telegram(String name, String message, int time, int imageId) {
+    public Telegram(String name, String message, String time, int imageId) {
         this.name = name;
         this.message = message;
         this.time = time;
         this.imageId = imageId;
     }
 
-    //Getter and Setter
 
+    //Getter and Setter
 
     public String getName() {
         return name;
@@ -34,11 +34,11 @@ public class Telegram {
         this.message = message;
     }
 
-    public int getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
