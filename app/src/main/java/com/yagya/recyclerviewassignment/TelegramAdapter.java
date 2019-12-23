@@ -47,10 +47,10 @@ public class TelegramAdapter extends RecyclerView.Adapter<TelegramAdapter.Telegr
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, DetailsActivity.class);
-                intent.putExtra("image", telegram.getImageId());
-                intent.putExtra("name", telegram.getName());
-                intent.putExtra("message", telegram.getMessage());
-                intent.putExtra("time", telegram.getTime());
+                intent.putExtra("imageView", telegram.getImageId());
+                intent.putExtra("tvName", telegram.getName());
+                intent.putExtra("tvMessage", telegram.getMessage());
+                intent.putExtra("tvTime", telegram.getTime());
 
                 mContext.startActivity(intent);
 

@@ -7,7 +7,7 @@
     tools:context=".DetailsActivity">
 
     <ImageView
-        android:id="@+id/circImg"
+        android:id="@+id/imageView"
         android:layout_width="202dp"
         android:layout_height="171dp"
         android:layout_marginStart="112dp"
@@ -17,32 +17,32 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvFullName"
+        android:id="@+id/tvName"
         android:layout_width="195dp"
         android:layout_height="40dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circImg" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/tvMessages"
+        android:id="@+id/tvMessage"
         android:layout_width="194dp"
         android:layout_height="40dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
-        android:id="@+id/tvTimes"
+        android:id="@+id/tvTime"
         android:layout_width="89dp"
         android:layout_height="40dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMessages" />
+        app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
